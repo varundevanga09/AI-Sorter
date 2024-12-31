@@ -1,0 +1,39 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "SaveSESEmailToS3:PlaceholderFunction (python3.12)",
+            "invokeTarget": {
+                "target": "template",
+                "templatePath": "${workspaceFolder}/SaveSESEmailToS3/template.yaml",
+                "logicalId": "PlaceholderFunction"
+            },
+            "lambda": {
+                "payload": {},
+                "environmentVariables": {},
+                "runtime": "python3.12"
+            }
+        },
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "API SaveSESEmailToS3:PlaceholderFunction (python3.12)",
+            "invokeTarget": {
+                "target": "api",
+                "templatePath": "${workspaceFolder}/SaveSESEmailToS3/template.yaml",
+                "logicalId": "PlaceholderFunction"
+            },
+            "api": {
+                "path": "/placeholder-path",
+                "httpMethod": "get",
+                "payload": {
+                    "json": {}
+                }
+            },
+            "lambda": {
+                "runtime": "python3.12"
+            }
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SaveSESEmailToS3
+
+  Sample SAM Template for SaveSESEmailToS3
+
+Globals:
+  Function:
+    Timeout: 60
+
+Resources:
+  SaveEmailFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Classify/
+      Handler: app.lambda_handler
+      Runtime: python3.12
+      Environment:
+        Variables:
+          BUCKET_NAME: "your-bucket-name-placeholder"
+      Events:
+        EmailEvent:
+          Type: SNS
+          Properties:
+            Topic: arn:aws:sns:<region>:<account-id>:<topic-name-placeholder>
